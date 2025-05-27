@@ -1,0 +1,11 @@
+1. What are the trade-offs between using std::map and std::unordered_map for storing player scores? Which is better for this application and why?
+Using std::map as opposed to std::unordered_map results in slower search times and involves a larger overhead structure.
+However, std::unordered_map is inefficient when it comes to ordering the key-value pairs by keys.
+I believe std::map is better since the binary search method that it implements is useful for methods such as
+getTopN(), which relies upon ordering to quickly find the N players with the highest scores. Although we care about the values rather than the keys
+when it comes to getTopN(), I still think that std::map is more optimal to shortening getTopN()'s runtime than the unordered map.
+
+2. What is the time complexity of the following operations in your implementation?
+● addOrUpdatePlayer(): the time complexity is O(log n).
+● removePlayer(): the time complexity is O(log n).
+● getTopN(): the time complexity is O(n).
